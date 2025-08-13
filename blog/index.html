@@ -1,0 +1,18 @@
+---
+title: Blog
+layout: default
+---
+
+<h1>Blog</h1>
+<ul class="post-list">
+  {%- for post in site.posts -%}
+  <li>
+    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+    <span class="meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+    <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
+  </li>
+  {%- endfor -%}
+  {%- if site.posts.size == 0 -%}
+  <li>No posts yet.</li>
+  {%- endif -%}
+</ul>

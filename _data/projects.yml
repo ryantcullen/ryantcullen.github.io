@@ -1,0 +1,2 @@
+# Optional data file if you want to render projects from YAML instead of collection files.
+# With the current setup, we are using the 'projects' collection under _projects/.

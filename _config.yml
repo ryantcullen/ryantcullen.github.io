@@ -1,0 +1,46 @@
+title: Ryan Cullen
+tagline: Engineer • Builder • Writer
+description: Portfolio and blog for projects and thoughts.
+url: https://ryantcullen.github.io
+baseurl: ""
+author:
+  name: Ryan Cullen
+  email: 
+  github: ryantcullen
+  twitter: 
+  linkedin: 
+permalink: pretty
+markdown: kramdown
+theme: null
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: project
+  - scope:
+      path: ""
+    values:
+      layout: page
+nav:
+  - name: Home
+    url: /
+  - name: Blog
+    url: /blog/
+  - name: Projects
+    url: /projects/
+  - name: About
+    url: /about/

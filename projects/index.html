@@ -1,0 +1,19 @@
+---
+title: Projects
+layout: default
+---
+
+<h1>Projects</h1>
+<ul class="post-list">
+  {%- assign items = site.projects | sort: 'weight' -%}
+  {%- for p in items -%}
+  <li>
+    <h3><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+    <p>{{ p.summary }}</p>
+    <span class="meta">{{ p.tags | array_to_sentence_string }}</span>
+  </li>
+  {%- endfor -%}
+  {%- if items.size == 0 -%}
+  <li>No projects yet.</li>
+  {%- endif -%}
+</ul>
