@@ -9,5 +9,44 @@
       {{ content }}
     </main>
     {% include footer.html %}
+
+    <script>
+      (function() {
+        const el = document.documentElement;
+        const btn = document.getElementById('theme-toggle');
+
+        function setIcon(theme) {
+          if (!btn) return;
+          btn.textContent = theme === 'light' ? '🌞' : '🌙';
+          btn.setAttribute('aria-label', theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme');
+        }
+
+        function current() {
+          return el.getAttribute('data-theme') || 'dark';
+        }
+
+        function apply(theme) {
+          el.setAttribute('data-theme', theme);
+          try { localStorage.setItem('theme', theme); } catch(e) {}
+          setIcon(theme);
+        }
+
+        setIcon(current());
+
+        if (btn) {
+          btn.addEventListener('click', () => {
+            apply(current() === 'dark' ? 'light' : 'dark');
+          });
+        }
+
+        // If system theme changes and user hasn't chosen manually, follow it
+        try {
+          if (!localStorage.getItem('theme')) {
+            const mq = window.matchMedia('(prefers-color-scheme: light)');
+            mq.addEventListener('change', e => apply(e.matches ? 'light' : 'dark'));
+          }
+        } catch(e) {}
+      })();
+    </script>
   </body>
 </html>

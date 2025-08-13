@@ -5,6 +5,7 @@
       {%- for item in site.nav -%}
         <a href="{{ item.url | relative_url }}">{{ item.name }}</a>
       {%- endfor -%}
+      <button id="theme-toggle" class="icon-btn" aria-label="Toggle color theme" title="Toggle theme">🌙</button>
     </nav>
   </div>
 </header>
