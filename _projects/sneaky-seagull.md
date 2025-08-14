@@ -4,7 +4,7 @@ summary: A goofy stealth game about a seagull on a sandwich heist. Solo-dev; Uni
 tags: [Unity3D, iOS, GameDev]
 weight: 1
 featured: true
-repo: https://github.com/ryantcullen
+App Store Page: https://apps.apple.com/us/app/sneaky-seagull/id6502964719
 ---
 
 A short blurb describing the project, your role, and what makes it cool. Add screenshots to <code>assets/img</code> and embed them here.
