@@ -5,6 +5,7 @@ layout: default
   <h1>{{ page.title }}</h1>
   {%- if page.repo -%}<p><a class="btn" href="{{ page.repo }}">GitHub Repo</a></p>{%- endif -%}
   {%- if page.demo -%}<p><a class="btn alt" href="{{ page.demo }}">Live Demo</a></p>{%- endif -%}
+  {%- if page.demo -%}<p><a class="btn alt" href="{{ page.link }}">Link</a></p>{%- endif -%}
   <p class="meta">{{ page.tags | array_to_sentence_string }}</p>
   {{ content }}
 </article>
