@@ -7,4 +7,6 @@ featured: true
 link: https://apps.apple.com/us/app/sneaky-seagull/id6502964719
 ---
 
-A short blurb describing the project, your role, and what makes it cool. Add screenshots to <code>assets/img</code> and embed them here.
+Sneaky Seagull is a goofy stealth game about a seagull on a sandwich heist. Fly around a seaside town as you steal food and valuables, collect golden feathers, and repaint the local cars. Solo-dev; coded in C# with Unity3D.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/g7kieU9zz9U?si=8xSrqm-F_c2-rSwC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
