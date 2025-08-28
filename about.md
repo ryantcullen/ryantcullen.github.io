@@ -2,8 +2,8 @@
 title: About
 ---
 
-Hi, I'm Ryan. I'm an engineer who loves building useful things and writing down the lessons learned along the way.
+Hi, I'm Ryan Cullen. I'm an engineer who loves to learn and build and break stuff. Here you can find the results of my various projects and musings.
 
-This site hosts my portfolio and blog. Check out my latest work on the **Projects** page and my thoughts on the **Blog**.
+This site hosts my portfolio and blog. Check out my latest work on the **Projects** page and my thoughts on any nuber of topics on the **Blog**.
 
-If you'd like to contact me, drop a line at the email in the footer or open an issue on my GitHub.
+If you'd like to contact me, please email at ryantcullen5@gmail.com.
