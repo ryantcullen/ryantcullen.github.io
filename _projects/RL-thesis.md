@@ -4,7 +4,8 @@ summary: Senior undergraduate thesis project which attempts to develop a protoco
 tags: [Reinforcement Learning, AI, Data Science, Research]
 weight: 4
 featured: false
-repo: https://github.com/ryantcullen/identifying-learners
+link: https://github.com/ryantcullen/identifying-learners
+linkName: Link
 ---
 
 Author: Ryan T. Cullen

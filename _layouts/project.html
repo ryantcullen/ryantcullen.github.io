@@ -3,9 +3,7 @@ layout: default
 ---
 <article class="project">
   <h1>{{ page.title }}</h1>
-  {%- if page.repo -%}<p><a class="btn" href="{{ page.repo }}">GitHub Repo</a></p>{%- endif -%}
-  {%- if page.demo -%}<p><a class="btn" href="{{ page.demo }}">Live Demo</a></p>{%- endif -%}
-  {%- if page.link -%}<p><a class="btn" href="{{ page.link }}">iOS Store Page</a></p>{%- endif -%}
+  {%- if page.link -%}<p><a class="btn" href="{{ page.repo }}">page.linkName</a></p>{%- endif -%}
   <p class="meta">{{ page.tags | array_to_sentence_string }}</p>
   {{ content }}
 </article>
