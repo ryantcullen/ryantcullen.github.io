@@ -1,6 +1,6 @@
 ---
 title: Reinforcement Learning Identification
-summary: Senior undergraduate thesis project which attempts to develop a protocol to distinguish learning agents from those without that capability. 
+summary: My senior undergraduate thesis project in which I developed a protocol to distinguish between learning and non-learning agents among a given population.
 tags: [Reinforcement Learning, AI, Data Science, Research]
 weight: 4
 featured: false
