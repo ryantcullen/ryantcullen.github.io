@@ -5,7 +5,7 @@ tags: [Unity3D, iOS, GameDev]
 weight: 1
 featured: true
 link: https://apps.apple.com/us/app/sneaky-seagull/id6502964719
-linkName: iOS Store
+linkName: App Store
 ---
 
 Sneaky Seagull is a goofy mobile game about a seagull on a sandwich heist. Fly around a seaside town as you steal food and valuables, collect golden feathers, and repaint the local cars. Solo-dev; coded in C# with Unity3D. View the demo/trailer below.

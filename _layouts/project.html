@@ -3,7 +3,18 @@ layout: default
 ---
 <article class="project">
   <h1>{{ page.title }}</h1>
-  {%- if page.link -%}<p><a class="btn" href="{{ page.link}}">{page.linkName}</a></p>{%- endif -%}
+
+  {% if page.link %}
+    {% assign label = page.linkName | default: "View project" %}
+    <p>
+      <a class="btn"
+         href="{{ page.link | escape }}"
+         {% if page.link contains '://' %}target="_blank" rel="noopener"{% endif %}>
+        {{ label | escape }}
+      </a>
+    </p>
+  {% endif %}
+
   <p class="meta">{{ page.tags | array_to_sentence_string }}</p>
   {{ content }}
 </article>

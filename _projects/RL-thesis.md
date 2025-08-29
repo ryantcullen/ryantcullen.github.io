@@ -5,7 +5,7 @@ tags: [Reinforcement Learning, AI, Data Science, Research]
 weight: 4
 featured: false
 link: https://github.com/ryantcullen/identifying-learners
-linkName: Link
+linkName: Paper
 ---
 
 Author: Ryan T. Cullen

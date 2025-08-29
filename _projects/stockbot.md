@@ -5,7 +5,7 @@ tags: [Python, Finance, Open Source]
 weight: 3
 featured: true
 link: https://github.com/ryantcullen/stock-bot
-linkName: Github Repo
+linkName: Github
 ---
 
 StockBot is a Python application for designing and testing your own daily stock trading algorithms.
