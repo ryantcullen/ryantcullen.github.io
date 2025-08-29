@@ -46,13 +46,5 @@ Here are a couple images depicting the output from an algorithm I developed.
 ![IBM](https://github.com/ryantcullen/stock-bot/blob/master/Example%20Pictures/lhWY5yX.png?raw=true)
 
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-The goal for this script is of course for it to be as robust and generalized as possible in terms of the data available for the user to use to design an algorithm. Add features according to whatever that means to you and submit a pull request to the feature-test branch. If if adds value to the project it will be accepted and merged. 
-
-Please make sure to update tests as appropriate.
-
-Thanks!  :)
 
 
