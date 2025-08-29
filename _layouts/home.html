@@ -15,7 +15,7 @@ layout: default
       {%- for p in featured -%}
       <li class="card">
         <h3><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
-        <p>{{ p.summary }}</p>
+        <p>{{ p.summary | truncate: 140}}</p>
         <p class="meta">{{ p.tags | array_to_sentence_string }}</p>
       </li>
       {%- endfor -%}
