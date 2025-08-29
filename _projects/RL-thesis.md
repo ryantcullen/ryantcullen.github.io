@@ -2,7 +2,7 @@
 title: Reinforcement Learning Identification
 summary: Senior undergraduate thesis project which attempts to develop a protocol to distinguish learning agents from those without that capability. 
 tags: [Reinforcement Learning, AI, Data Science, Research]
-weight: 1
+weight: 4
 featured: true
 repo: https://github.com/ryantcullen/identifying-learners
 ---
