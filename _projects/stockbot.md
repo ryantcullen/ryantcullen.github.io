@@ -7,13 +7,13 @@ featured: true
 repo: https://github.com/ryantcullen/stock-bot
 ---
 
-# StockBot
-
 StockBot is a Python application for designing and testing your own daily stock trading algorithms.
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install matplotlib and yfinance from your command line.
+1. Clone this repository to your machine.
+
+2. Use the package manager [pip](https://pip.pypa.io/en/stable/) to install matplotlib and yfinance from your command line.
 
 ```bash
 pip install matplotlib
@@ -21,7 +21,10 @@ pip install yfinance
 ```
 
 ## Usage
-You will be asked to enter a ticker for the stock that you want to test the algorithm on.
+
+Run the script from your command line
+
+You will be asked to enter a ticker for the stock on which you want to test the algorithm.
 
 ## Designing Your Own Algorithm
 If you want to modify the algorithm and design your own, you only need to change the Decide() function so that the followig parameters are updated based on your algorithm logic:
