@@ -38,6 +38,11 @@ The control pipeline runs entirely on Windows 11 using MATLAB's Robotics System 
 
 The framework also supports simulation-first workflows using **URSim** (a 1:1 physics simulator) and **URStudio** (a browser-based PolyscopeX emulator), allowing students to validate their code before deploying to the physical robot. URSim with MATLAB over RTDE is functionally identical to controlling the real hardware.
 
+<p align="center">
+<img src="{{ '/assets/images/carelab/RTDE.png' | relative_url }}" alt="RTDE control flowchart" width="550">
+<br><em>RTDE control flowchart showing the OS and hardware requirements for both the simulator setup and direct hardware control.</em>
+</p>
+
 ---
 
 ## Lab Modules
