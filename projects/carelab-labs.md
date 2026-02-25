@@ -4,7 +4,7 @@ title: "CARELab: Robotics Lab Curriculum"
 tags: [MATLAB, RTDE, UR3e, Robotics, Education]
 ---
 
-[&larr; Back to CARELab Robotics Research]({{ '/projects/CARELab/' | relative_url }})
+[&larr; Back to CARELab Robotics Research]({{ '/projects/carelab/' | relative_url }})
 
 ## Overview
 
@@ -67,4 +67,4 @@ I authored four progressive lab modules that take students from zero to controll
 
 **Simulation-first workflow:** URSim provides a 1:1 physics simulation that behaves identically to the real hardware when controlled via RTDE. Students can validate code safely before touching the physical robot.
 
-[&larr; Back to CARELab Robotics Research]({{ '/projects/CARELab/' | relative_url }})
+[&larr; Back to CARELab Robotics Research]({{ '/projects/carelab/' | relative_url }})

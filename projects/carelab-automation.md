@@ -4,7 +4,7 @@ title: "CARELab: UR3e Automation & Control"
 tags: [ROS2, UR3e, Robotics, Python, Automation]
 ---
 
-[&larr; Back to CARELab Robotics Research]({{ '/projects/CARELab/' | relative_url }})
+[&larr; Back to CARELab Robotics Research]({{ '/projects/carelab/' | relative_url }})
 
 ## Overview
 
@@ -12,4 +12,4 @@ Alongside the lab curriculum development, I am building out the UR3e's automatio
 
 *Detailed content coming soon.*
 
-[&larr; Back to CARELab Robotics Research]({{ '/projects/CARELab/' | relative_url }})
+[&larr; Back to CARELab Robotics Research]({{ '/projects/carelab/' | relative_url }})
