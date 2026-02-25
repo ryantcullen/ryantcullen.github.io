@@ -44,12 +44,13 @@ The framework also supports simulation-first workflows using **URSim** (a 1:1 ph
 
 I authored four progressive lab modules that take students from zero to controlling a real industrial robot.
 
-| Module | Topic | What Students Do |
-|--------|-------|-----------------|
-| **Lab 1** | Installation & RTDE Setup | Configure the MATLAB-to-UR3e communication pipeline, verify live joint state feedback, and send their first movement command |
-| **Lab 2** | Safety & Teach Pendant | Hands-on with E-stops, safety planes, force/speed limits, payload configuration, and basic TP programming |
-| **Lab 3** | Forward Kinematics | Derive the UR3e's FK from first principles using screw theory (Product of Exponentials), implement in MATLAB, and validate against both URSim and the physical robot |
-| **Lab 4** | Pick-and-Place (Capstone) | Execute a pick-and-place task first via the Teach Pendant, then replicate it programmatically through MATLAB + RTDE |
+**Lab 1 — Installation & RTDE Setup:** Students configure the full MATLAB-to-UR3e communication pipeline, including RTDE networking, URCapX plugin installation, and static IP configuration. By the end, they have live joint state feedback and can send their first movement command.
+
+**Lab 2 — Safety & Teach Pendant:** Hands-on introduction to the UR3e's safety system and Teach Pendant interface. Covers E-stops, virtual safety planes, force/speed limits, payload configuration for the Robotiq 2F-85 gripper, and basic TP programming with waypoints.
+
+**Lab 3 — Forward Kinematics:** Students derive the UR3e's forward kinematics from first principles using screw theory (Product of Exponentials), implement the model in MATLAB, and validate their results against both URSim and the physical robot hardware.
+
+**Lab 4 — Pick-and-Place (Capstone):** Students execute a practical pick-and-place task on the physical UR3e, first using the Teach Pendant and then replicating it programmatically through MATLAB + RTDE to compare the two workflows.
 
 ---
 
