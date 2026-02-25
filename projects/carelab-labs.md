@@ -22,11 +22,11 @@ A key challenge was selecting the right combination of OS, control method, and s
 
 For **direct hardware control**, Linux supports both MATLAB and ROS2, but Windows — the dominant OS in university labs — only supports MATLAB via RTDE. ROS2 on Windows does not support direct UR hardware control, making MATLAB + RTDE the clear choice for a Windows-native workflow.
 
-<img src="{{ '/assets/images/carelab/hardware_flowchart.png' | relative_url }}" alt="Hardware control platform selection flowchart" width="690">
+<img src="{{ '/assets/images/carelab/hardware_flowchart.png' | relative_url }}" alt="Hardware control platform selection flowchart" width="345">
 
 For **simulation**, Linux provides full access to URSim and Gazebo natively. On Windows, running a Linux VM gives the same URSim + URStudio access. Running natively on Windows limits you to URStudio only (a browser-based PolyscopeX emulator), which does not support external control methods like RTDE or ROS — only teach pendant-style interaction.
 
-<img src="{{ '/assets/images/carelab/sim_flowchart.png' | relative_url }}" alt="Simulation platform selection flowchart" width="690">
+<img src="{{ '/assets/images/carelab/sim_flowchart.png' | relative_url }}" alt="Simulation platform selection flowchart" width="449">
 
 The final architecture uses **MATLAB + RTDE on Windows** for hardware control, with **URSim in a Linux VM** for simulation and **URStudio** for quick pose exploration.
 
