@@ -1,50 +1,33 @@
 ---
 title: StockBot
-summary: Open source Python application for testing finance trading algorithms.
+summary: Open source Python backtesting engine for designing and evaluating stock trading algorithms.
 tags: [Python, Finance, Open Source]
 weight: 3
 featured: true
 link: https://github.com/ryantcullen/stock-bot
-linkName: Github
+linkName: GitHub
 ---
 
-StockBot is a Python application for designing and testing your own daily stock trading algorithms.
+StockBot is an open-source Python backtesting engine that lets you design, test, and visualize daily stock trading algorithms against real historical market data.
 
-## Installation
+## How It Works
 
-1. Clone this repository to your machine.
+The user enters a stock ticker and StockBot fetches up to 10 years of historical price data via the Yahoo Finance API. It then iterates through every trading day, computing four moving averages (10, 50, 100, and 200-day windows) along with derived indicators like slope, concavity, and crossover signals. On each day, a customizable `Decide()` function evaluates these indicators and executes buy or sell orders.
 
-2. Use the package manager [pip](https://pip.pypa.io/en/stable/) to install matplotlib and yfinance from your command line.
+Position sizing uses the **Kelly Criterion**, which calculates the mathematically optimal bet size given an expected return and probability of profit. The result is compared against a simple buy-and-hold baseline to evaluate the algorithm's performance.
 
-```bash
-pip install matplotlib
-pip install yfinance
-```
+## Architecture
 
-## Usage
-
-Run the script from your command line
-
-You will be asked to enter a ticker for the stock on which you want to test the algorithm.
-
-## Designing Your Own Algorithm
-If you want to modify the algorithm and design your own, you only need to change the Decide() function so that the followig parameters are updated based on your algorithm logic:
-```
-prob_profit = 0.501                             # probability of profit (eg, 50.1%)
-expected_return = 1.2                           # expected return (eg. 120%)
-modifier = 0.2                                  # value from 0-1; higher values = more aggressive bet
-```
-The Decide() function also takes three inputs, which correspond to moving averages of the stock over various tine frames. These may be useful when designing your algorithm. 
+- **Portfolio** — Manages capital, share count, and order execution. Uses the Kelly Criterion for position sizing.
+- **MovingAverage** — Tracks a rolling average over a configurable window, computing first and second derivatives (slope and concavity), percent deviation from the mean, and price crossover detection.
+- **Main loop** — Fetches data, runs the simulation day-by-day, and renders the results as a matplotlib chart with buy/sell markers and moving average overlays.
 
 ## Example Output
-Here are a couple images depicting the output from an algorithm I developed. 
 
 ![PEN](https://github.com/ryantcullen/stock-bot/blob/master/Example%20Pictures/B4myQ0t.png?raw=true)
 
 ![BABA](https://github.com/ryantcullen/stock-bot/blob/master/Example%20Pictures/TwOShiK.png?raw=true)
 
 ![IBM](https://github.com/ryantcullen/stock-bot/blob/master/Example%20Pictures/lhWY5yX.png?raw=true)
-
-
 
 
