@@ -14,16 +14,16 @@ This work was presented as a work-in-progress paper at the **2026 ASEE Annual Co
 
 ---
 
-### Robotics Lab Curriculum Development
-
-Designed and authored a four-module laboratory curriculum that uses MATLAB and the Real Time Data Exchange (RTDE) protocol to give undergraduate students direct, hands-on control of an industrial UR3e robot without requiring Linux or ROS. The curriculum progressively builds from installation and safety through teach pendant operation, forward kinematics derivation via screw theory, and a capstone pick-and-place exercise.
-
-[Read more &rarr;]({{ '/projects/carelab-labs/' | relative_url }})
-
----
-
 ### UR3e Automation & Control
 
 Designing the UR3e's ROS2 control architecture for research applications. After a thorough investigation of platform constraints (the UR ROS2 driver is Linux-only and MATLAB's ROS2 workflow requires a Linux host), I designed a three-node architecture using a dedicated Linux SBC as a ROS2 bridge between MATLAB on Windows and the robot, with integrated Robotiq gripper control via RS485 forwarding.
 
 [Read more &rarr;]({{ '/projects/carelab-automation/' | relative_url }})
+
+---
+
+### Robotics Lab Curriculum Development
+
+Designed and authored a four-module laboratory curriculum that uses MATLAB and the Real Time Data Exchange (RTDE) protocol to give undergraduate students direct, hands-on control of an industrial UR3e robot without requiring Linux or ROS. The curriculum progressively builds from installation and safety through teach pendant operation, forward kinematics derivation via screw theory, and a capstone pick-and-place exercise.
+
+[Read more &rarr;]({{ '/projects/carelab-labs/' | relative_url }})
