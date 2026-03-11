@@ -24,6 +24,6 @@ Designed and authored a four-module laboratory curriculum that uses MATLAB and t
 
 ### UR3e Automation & Control
 
-Developing the UR3e's automation and control stack for research applications, including ROS2 integration, digital I/O configuration, conveyor belt integration, and custom control pipelines.
+Designing the UR3e's ROS2 control architecture for research applications. After a thorough investigation of platform constraints — the UR ROS2 driver is Linux-only and MATLAB's ROS2 workflow requires a Linux host — I designed a three-node architecture using a dedicated Linux SBC as a ROS2 bridge between MATLAB on Windows and the robot, with integrated Robotiq gripper control via RS485 forwarding.
 
 [Read more &rarr;]({{ '/projects/carelab-automation/' | relative_url }})
