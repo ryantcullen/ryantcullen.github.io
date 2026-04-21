@@ -4,7 +4,7 @@ title: American Mulan
 
 In 1998, Disney told us the story of a young Chinese woman who disguised herself as a man to fight in her father's place. Mulan was a resounding success and remains in the cultural zeitgeist to this day. But [Deborah Sampson](https://en.wikipedia.org/wiki/Deborah_Sampson) did it too, and in real life, in 1782.
 
-Sampson bound her chest, enlisted in the Continental Army under the name Robert Shurtleff, and served in a light infantry company during the Revolutionary War. She fought in multiple engagements, was wounded at least twice, and on one occasion dug a musket ball out of her own thigh with a penknife rather than let a surgeon discover her secret. In short, she was a bit of a maniac who wasn't going to let the men have all the fun.
+Sampson bound her chest, enlisted in the Continental Army under the name Robert Shurtleff, and served in a light infantry company during the Revolutionary War. She fought in multiple engagements, was wounded at least twice, and on one occasion dug a musket ball out of her own thigh with a pocket knife rather than let a surgeon discover her secret. In short, she was a bit of a maniac who wasn't going to let the men have all the fun.
 
 ### Liberty Paradox
 
@@ -16,6 +16,6 @@ The bureaucracy, apparently, could be progressive when sufficiently confused.
 
 ### Echoes Today
 
-Sampson didn't fight because she wanted to be a man. She fought because she wanted to fight, and that was the only option the world gave her. The gap between what a person can do and what a system will let them do is a problem as old as systems themselves. Most of us just find workarounds that don't involve a penknife.
+Sampson didn't fight because she wanted to be a man. She fought because she wanted to fight, and that was the only option the world gave her. The gap between what a person can do and what a system will let them do is a problem as old as systems themselves. Most of us just find workarounds that don't involve a pocket knife.
 
 -Ryan
