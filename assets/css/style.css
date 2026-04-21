@@ -89,7 +89,8 @@ a:hover{text-decoration:underline}
 @media (max-width: 600px){.card-list{grid-template-columns:1fr}}
 .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;display:flex;flex-direction:column}
 .card h3{margin-top:0}
-.meta{color:var(--muted);font-size:14px;margin-top:auto}
+.card p:not(.meta){flex-grow:1}
+.meta{color:var(--muted);font-size:14px;margin-top:8px}
 
 .post-list{list-style:none;padding:0}
 .post-list li{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin:12px 0}
