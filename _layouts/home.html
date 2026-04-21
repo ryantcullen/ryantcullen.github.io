@@ -7,36 +7,35 @@ layout: default
   <p>I build things, break them, and write down my thoughts. Welcome to my portfolio + blog. </p>
 </section>
 
-<section class="grid">
-  <div>
-    <h2>Featured Projects</h2>
-    <ul class="card-list">
-      {%- assign featured = site.projects | where_exp: 'p','p.featured == true' | slice: 0, 3 -%}
-      {%- for p in featured -%}
-      <li class="card">
-        <h3><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
-        <p>{{ p.summary | truncate: 140}}</p>
-        <p class="meta">{{ p.tags | array_to_sentence_string }}</p>
-      </li>
-      {%- endfor -%}
-      {%- if featured.size == 0 -%}
-      <li>No featured projects yet. Edit <code>_data/projects.yml</code> or add files under <code>_projects/</code>.</li>
-      {%- endif -%}
-    </ul>
-  </div>
-  <div>
-    <h2>Latest Blog Posts</h2>
-    <ul class="card-list">
-      {%- for post in site.posts limit:3 -%}
-      <li class="card">
-        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-        <p>{{ post.excerpt | strip_html | truncate: 140 }}</p>
-        <p class="meta">{{ post.date | date: "%b %-d, %Y" }}</p>
-      </li>
-      {%- endfor -%}
-      {%- if site.posts.size == 0 -%}
-      <li>No posts yet. Add Markdown files under <code>_posts/</code>.</li>
-      {%- endif -%}
-    </ul>
-  </div>
+<section>
+  <h2>Featured Projects</h2>
+  <ul class="card-list card-list-2col">
+    {%- assign featured = site.projects | where_exp: 'p','p.featured == true' | slice: 0, 3 -%}
+    {%- for p in featured -%}
+    <li class="card">
+      <h3><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+      <p>{{ p.summary | truncate: 140}}</p>
+      <p class="meta">{{ p.tags | array_to_sentence_string }}</p>
+    </li>
+    {%- endfor -%}
+    {%- if featured.size == 0 -%}
+    <li>No featured projects yet. Edit <code>_data/projects.yml</code> or add files under <code>_projects/</code>.</li>
+    {%- endif -%}
+  </ul>
+</section>
+
+<section>
+  <h2>Recent Blog Posts</h2>
+  <ul class="card-list">
+    {%- for post in site.posts limit:3 -%}
+    <li class="card">
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <p>{{ post.excerpt | strip_html | truncate: 140 }}</p>
+      <p class="meta">{{ post.date | date: "%b %-d, %Y" }}</p>
+    </li>
+    {%- endfor -%}
+    {%- if site.posts.size == 0 -%}
+    <li>No posts yet. Add Markdown files under <code>_posts/</code>.</li>
+    {%- endif -%}
+  </ul>
 </section>
