@@ -16,6 +16,6 @@ The bureaucracy, apparently, could be progressive when sufficiently confused.
 
 ### Echoes Today
 
-Sampson didn't fight because she wanted to be a man. She fought because she wanted to fight, and that was the only option the world gave her. The gap between what a person can do and what a system will let them do is a problem as old as systems themselves. Most of us just find workarounds that don't involve a pocket knife.
+Sampson didn't fight because she wanted to be a man. She fought because she wanted to fight, and that was the only option the world gave her. The gap between what a person can do and what a system will let them do is a problem as old as systems themselves. Most of us just find workarounds that don't involve stabbing yourself with a pocket knife.
 
 -Ryan
