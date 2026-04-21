@@ -10,7 +10,7 @@ layout: default
   <li>
     <h3><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
     <p>{{ p.summary }}</p>
-    <span class="meta">{{ p.tags | array_to_sentence_string }}</span>
+    <span class="meta">{{ p.tags | join: ", " }}</span>
   </li>
   {%- endfor -%}
   {%- if items.size == 0 -%}

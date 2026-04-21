@@ -16,6 +16,6 @@ layout: default
     </p>
   {% endif %}
 
-  <p class="meta">{{ page.tags | array_to_sentence_string }}</p>
+  <p class="meta">{{ page.tags | join: ", " }}</p>
   {{ content }}
 </article>

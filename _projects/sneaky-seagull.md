@@ -1,7 +1,7 @@
 ---
 title: Sneaky Seagull
 summary: A mobile game about a seagull on a sandwich heist. Solo-dev; C# (Unity3D).
-tags: [Unity3D, iOS, GameDev]
+tags: [Unity3D, iOS, GameDev, C#]
 weight: 2
 featured: true
 link: https://apps.apple.com/us/app/sneaky-seagull/id6502964719
