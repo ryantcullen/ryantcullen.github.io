@@ -1,14 +1,14 @@
 ---
 title: CARELab Robotics Research
-summary: Developing a MATLAB-based robotics lab curriculum and UR3e automation framework at SFSU's Control for Assistive and Rehabilitation Robotics Lab.
-tags: [ROS2, MATLAB, UR3e, Robotics, Python]
+summary: Developing a ROS2 perception and control pipeline for a UR3e collaborative manipulator with an NVIDIA Jetson Orin for edge AI, alongside a MATLAB-based lab curriculum, at SFSU's CARE Lab.
+tags: [ROS2, MATLAB, UR3e, Robotics, Python, NVIDIA Jetson, YOLOv8, Computer Vision]
 weight: 2
 featured: true
 link: https://www.careroboticslab.com
 linkName: CARELab
 ---
 
-As a graduate researcher at the **CARE Lab** (Control for Assistive and Rehabilitation Robotics Lab) at San Francisco State University, I lead two parallel efforts centered on a Universal Robots UR3e collaborative robot arm: developing a hands-on lab curriculum for undergraduate robotics education, and building out the robot's automation and control capabilities for research applications.
+As a graduate researcher at the **CARE Lab** (Control for Assistive and Rehabilitation Robotics Lab) at San Francisco State University, I lead two parallel efforts centered on a Universal Robots UR3e collaborative robot arm: developing a hands-on lab curriculum for undergraduate robotics education, and building out the robot's ROS2 automation stack with an NVIDIA Jetson Orin as a GPU-accelerated edge AI and perception layer.
 
 This work was presented as a work-in-progress paper at the **2026 ASEE Annual Conference & Exposition**, titled *"MATLAB/Simulink-Based Open-Source Robot Control Framework for Undergraduate Robotics Curriculum."*
 
@@ -16,7 +16,7 @@ This work was presented as a work-in-progress paper at the **2026 ASEE Annual Co
 
 ### UR3e Automation & Control
 
-Designing the UR3e's ROS2 control architecture for research applications. After a thorough investigation of platform constraints (the UR ROS2 driver is Linux-only and MATLAB's ROS2 workflow requires a Linux host), I designed a three-node architecture using a dedicated Linux SBC as a ROS2 bridge between MATLAB on Windows and the robot, with integrated Robotiq gripper control via RS485 forwarding.
+Developing a ROS2 perception and control pipeline for the UR3e with a Robotiq 2F-85 gripper, targeting vision-guided manipulation tasks. After a thorough investigation of platform constraints (the UR ROS2 driver is Linux-only and MATLAB's ROS2 workflow requires a Linux host), I designed a three-node architecture with an **NVIDIA Jetson Orin** serving as the ROS2 bridge between MATLAB on Windows and the robot, with integrated Robotiq gripper control via RS485 forwarding. The Jetson's Ampere GPU and dedicated inference hardware make it the edge AI layer of the system — currently being used to deploy **YOLOv8-based object detection** as a GPU-accelerated ROS2 perception node for real-time vision-guided manipulation.
 
 [Read more &rarr;]({{ '/projects/carelab-automation/' | relative_url }})
 

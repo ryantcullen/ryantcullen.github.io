@@ -1,14 +1,14 @@
 ---
 layout: project
 title: "CARELab: UR3e Automation & Control"
-tags: [ROS2, UR3e, Robotics, Python, Automation]
+tags: [ROS2, UR3e, Robotics, Python, Automation, NVIDIA Jetson, YOLOv8, Computer Vision]
 ---
 
 [&larr; Back to CARELab Robotics Research]({{ '/projects/carelab/' | relative_url }})
 
 ## Overview
 
-Alongside the lab curriculum development, I am building out the UR3e's full automation and control stack for research applications at the CARE Lab. The central challenge: integrating ROS2 into a workflow anchored on a Windows 11 machine running MATLAB, a combination that no single platform supports natively. After a thorough investigation of the constraints, I designed a three-node architecture that bridges the gap using a dedicated Linux single-board computer as a ROS2 middleman, preserving the existing MATLAB workflow while enabling full ROS2 capabilities.
+Alongside the lab curriculum development, I am building out the UR3e's full automation and control stack for research applications at the CARE Lab, with an **NVIDIA Jetson Orin** serving as both the ROS2 bridge and edge AI layer. The central challenge: integrating ROS2 and GPU-accelerated vision into a workflow anchored on a Windows 11 machine running MATLAB, a combination that no single platform supports natively. After a thorough investigation of the constraints, I designed a three-node architecture that uses the Jetson Orin to bridge the gap — preserving the existing MATLAB workflow while enabling full ROS2 capabilities and on-device inference.
 
 ---
 
@@ -26,27 +26,27 @@ The lab's existing setup, MATLAB on Windows 11 controlling the UR3e and Robotiq 
 
 ---
 
-## The Solution: Linux SBC as ROS2 Bridge
+## The Solution: NVIDIA Jetson Orin as ROS2 Bridge and Edge AI Layer
 
-The architecture introduces a Linux single-board computer, such as a Raspberry Pi 5 or NVIDIA Jetson, as a dedicated ROS2 bridge between MATLAB and the UR3e. This is the architecture MathWorks themselves describe in their documentation, just implemented with a compact, dedicated device instead of a full second PC.
+The architecture introduces an **NVIDIA Jetson Orin** as a dedicated ROS2 node between MATLAB and the UR3e. This is the architecture MathWorks themselves describe in their documentation — a compact Linux device instead of a full second PC — but with the Jetson chosen specifically for its GPU-accelerated inference capabilities rather than just bridging.
 
 ```
-[Windows 11 PC] ---Ethernet--- [Linux SBC] ---Ethernet--- [UR3e Controller]
-   MATLAB                     ROS2 + UR Driver            PolyscopeX
-   (DDS Client)               (ROS2 Bridge)               (ExternalControl URCapX)
+[Windows 11 PC] ---Ethernet--- [NVIDIA Jetson Orin] ---Ethernet--- [UR3e Controller]
+   MATLAB                      ROS2 + UR Driver                    PolyscopeX
+   (DDS Client)                (ROS2 Bridge + Perception)          (ExternalControl URCapX)
 ```
 
-The SBC runs Ubuntu 22.04 with ROS2 Humble and the UR ROS2 driver. It has direct, wired Ethernet access to the UR3e, no virtualization layer, giving it the reliable, low-latency network connection the driver requires. MATLAB on Windows communicates with the SBC over the ROS2 DDS network, and the SBC translates those commands into RTDE traffic for the robot.
+The Jetson runs Ubuntu 22.04 with ROS2 Humble and the UR ROS2 driver. It has direct, wired Ethernet access to the UR3e — no virtualization layer — giving it the reliable, low-latency network connection the driver requires. MATLAB on Windows communicates with the Jetson over the ROS2 DDS network, and the Jetson translates those commands into RTDE traffic for the robot.
 
-An RPi 5 (4GB) is sufficient for this role. The UR ROS2 driver is not computationally heavy; it primarily shuttles RTDE packets and manages `ros2_control` loops. A quad-core ARM Cortex-A72 or better at 1.5GHz+, 2-4GB of RAM, and a wired Ethernet port are the only real requirements. A Jetson would be overkill unless GPU-accelerated inference (computer vision, LLM planning) is needed on the edge device later.
+The Jetson Orin's Ampere GPU and dedicated deep learning accelerators make it the right choice for this role: the UR ROS2 driver itself is not computationally heavy, but the system's goal is vision-guided manipulation, which requires real-time GPU inference on the same device. Running both the ROS2 bridge and the perception pipeline on the Jetson keeps the architecture compact and avoids the latency of routing camera data to a separate inference host.
 
 ---
 
 ## Communication Architecture
 
-Two parallel communication channels connect MATLAB on Windows to the ROS2 network on the SBC:
+Two parallel communication channels connect MATLAB on Windows to the ROS2 network on the Jetson:
 
-**SSH (administrative channel).** MATLAB uses `ros2device` to connect to the SBC over SSH, providing the SBC's static IP, username, and password. This connection handles administrative tasks: transferring launch scripts, starting and stopping ROS2 nodes remotely, and process cleanup.
+**SSH (administrative channel).** MATLAB uses `ros2device` to connect to the Jetson over SSH, providing the Jetson's static IP, username, and password. This connection handles administrative tasks: transferring launch scripts, starting and stopping ROS2 nodes remotely, and process cleanup.
 
 ```matlab
 device = ros2device('192.168.1.100', 'jetson_user', 'password');
@@ -54,11 +54,11 @@ device.ROS2Folder = '/opt/ros/humble';
 device.ROS2Workspace = '~/ur_ws/install';
 ```
 
-**ROS2 DDS (data channel).** Once the UR driver is running on the SBC, MATLAB communicates with it over DDS (Data Distribution Service), ROS2's underlying transport layer. MATLAB's ROS Toolbox includes a built-in ROS2 node that participates in DDS multicast discovery automatically. Both machines need to be on the same subnet and share the same `ROS_DOMAIN_ID`; no ROS master is required.
+**ROS2 DDS (data channel).** Once the UR driver is running on the Jetson, MATLAB communicates with it over DDS (Data Distribution Service), ROS2's underlying transport layer. MATLAB's ROS Toolbox includes a built-in ROS2 node that participates in DDS multicast discovery automatically. Both machines need to be on the same subnet and share the same `ROS_DOMAIN_ID`; no ROS master is required.
 
 From MATLAB, the robot appears as a standard `urROS2Node` object with access to `/joint_states` for reading robot state and `/scaled_joint_trajectory_controller/follow_joint_trajectory` for sending motion commands.
 
-Between the SBC and the UR3e, the ROS2 driver communicates over RTDE and the UR real-time interface, the same protocols used in the direct MATLAB-to-robot setup, but now managed by the `ros2_control` framework. On the PolyscopeX side, the **ExternalControl URCapX** hands control authority from the teach pendant to the ROS2 driver. When the operator presses Play on the External Control program, the robot begins accepting commands from the SBC.
+Between the Jetson and the UR3e, the ROS2 driver communicates over RTDE and the UR real-time interface, the same protocols used in the direct MATLAB-to-robot setup, but now managed by the `ros2_control` framework. On the PolyscopeX side, the **ExternalControl URCapX** hands control authority from the teach pendant to the ROS2 driver. When the operator presses Play on the External Control program, the robot begins accepting commands from the Jetson.
 
 ---
 
@@ -66,12 +66,12 @@ Between the SBC and the UR3e, the ROS2 driver communicates over RTDE and the UR 
 
 The Robotiq 2F-85 gripper posed its own integration challenge. In the direct RTDE setup, we controlled the gripper by modifying the `urserver.script` file to call Robotiq URCapX functions directly. But the **Robotiq URCapX and ExternalControl URCapX conflict with each other** on PolyscopeX and cannot run simultaneously, making the existing gripper control method incompatible with the ROS2 architecture.
 
-The solution uses the **tool-comm-forwarder URCapX**, a separate PolyscopeX plugin designed to coexist with ExternalControl. It forwards the UR3e's RS485 tool flange interface, where the Robotiq gripper is physically connected, over the network to the SBC on TCP port 54321. On the SBC, `socat` creates a virtual serial device (`/tmp/ttyUR`) from that TCP stream, and a ROS2 gripper driver node communicates with the gripper via Modbus RTU over this virtual port.
+The solution uses the **tool-comm-forwarder URCapX**, a separate PolyscopeX plugin designed to coexist with ExternalControl. It forwards the UR3e's RS485 tool flange interface, where the Robotiq gripper is physically connected, over the network to the Jetson on TCP port 54321. On the Jetson, `socat` creates a virtual serial device (`/tmp/ttyUR`) from that TCP stream, and a ROS2 gripper driver node communicates with the gripper via Modbus RTU over this virtual port.
 
-The resulting node graph on the SBC:
+The resulting node graph on the Jetson:
 
 ```
-SBC (Ubuntu 22.04 + ROS2 Humble)
+Jetson Orin (Ubuntu 22.04 + ROS2 Humble)
 ├── ur_robot_driver
 │     ├── RTDE <-> UR3e (arm control)
 │     └── use_tool_communication:=true
@@ -84,7 +84,17 @@ SBC (Ubuntu 22.04 + ROS2 Humble)
       └── MATLAB sees arm + gripper as ROS2 topics/services
 ```
 
-This eliminates the Robotiq URCapX entirely, replacing it with the tool-comm-forwarder + a dedicated ROS2 gripper node. Notably, the Modbus RTU path that failed on Windows due to suspected enterprise firewall or serial driver issues works reliably on the Linux SBC; we had previously verified this on a separate Linux PC.
+This eliminates the Robotiq URCapX entirely, replacing it with the tool-comm-forwarder + a dedicated ROS2 gripper node. Notably, the Modbus RTU path that failed on Windows due to suspected enterprise firewall or serial driver issues works reliably on the Jetson; we had previously verified this on a separate Linux PC.
+
+---
+
+## Edge AI Perception: YOLOv8 on the Jetson Orin
+
+The Jetson Orin's role in this architecture extends beyond ROS2 bridging. Its Ampere GPU and dedicated deep learning accelerators make it the system's edge AI layer for real-time computer vision — inference runs on the Jetson itself, keeping latency low and the Windows control host free of any vision processing overhead.
+
+The current work is deploying **YOLOv8** as a GPU-accelerated ROS2 perception node on the Jetson. A CSI-connected camera feeds into the Jetson's hardware ISP, which handles debayering, auto-exposure, and format conversion before data reaches the GPU. Detection results publish directly to the ROS2 DDS network as standard message types, making detected object poses available to MATLAB and downstream nodes without additional infrastructure.
+
+The detection output feeds the manipulation pipeline: object poses from the detector inform motion planning for the UR3e, completing the perception-to-action loop for vision-guided grasping tasks. NVIDIA's TensorRT inference optimizer — which fuses layers, quantizes weights to FP16 or INT8, and auto-tunes CUDA kernels for the specific Orin hardware — can push YOLOv8n from roughly 15–25 FPS in native PyTorch to 60+ FPS, providing the headroom needed for a responsive workbench assistant.
 
 ---
 
@@ -94,7 +104,7 @@ Adding the ROS2 middleman introduces measurable but practically insignificant la
 
 **Direct RTDE (~2ms cycle time).** RTDE on the e-Series runs natively at 500Hz. The path is simple: MATLAB sends a command over the RTDE TCP socket, and the UR3e controller executes it. One network hop, one protocol, minimal serialization overhead.
 
-**ROS2 middleman (~10-50ms end-to-end).** The full stack adds three layers of latency: DDS serialization and network transit from MATLAB to the SBC (~0.5-5ms per hop), the `ros2_control` loop on the SBC (controller manager read/write cycle, trajectory interpolation, speed scaling), and then RTDE from the SBC to the UR3e. Without a real-time kernel on the SBC, some scheduling jitter is expected as well.
+**ROS2 middleman (~10-50ms end-to-end).** The full stack adds three layers of latency: DDS serialization and network transit from MATLAB to the Jetson (~0.5-5ms per hop), the `ros2_control` loop on the Jetson (controller manager read/write cycle, trajectory interpolation, speed scaling), and then RTDE from the Jetson to the UR3e. Without a real-time kernel on the Jetson, some scheduling jitter is expected as well.
 
 **Practical impact: negligible for our applications.** Trajectory-level commands (`moveJ`, `moveL`, waypoint following) take seconds to execute. Whether the command arrives 2ms or 30ms after it's sent doesn't meaningfully change behavior; the robot interpolates on-board. The latency penalty would only matter for tight servo-rate control (500Hz `servoJ` loops for force control or visual servoing), which our research applications don't require. For pick-and-place, demonstration tasks, and trajectory execution, the difference is imperceptible.
 
@@ -102,18 +112,18 @@ Adding the ROS2 middleman introduces measurable but practically insignificant la
 
 ## Network Configuration
 
-The UR3e and the Linux SBC both require **static IP addresses**. The UR driver launch command hardcodes the robot IP (`robot_ip:=192.168.1.10`), and the ExternalControl URCapX on the teach pendant must be configured with the SBC's IP so the robot can initiate its "call home" connection when the operator presses Play.
+The UR3e and the Jetson Orin both require **static IP addresses**. The UR driver launch command hardcodes the robot IP (`robot_ip:=192.168.1.10`), and the ExternalControl URCapX on the teach pendant must be configured with the Jetson's IP so the robot can initiate its "call home" connection when the operator presses Play.
 
-The Windows MATLAB machine **does not need a static IP**. It only initiates outbound connections (SSH to the SBC and DDS multicast discovery), so DHCP is fine. If campus enterprise networking blocks UDP multicast, DDS can be configured for unicast discovery by setting `ROS_DISCOVERY_SERVER` or configuring the FastDDS peer list to point at the SBC directly.
+The Windows MATLAB machine **does not need a static IP**. It only initiates outbound connections (SSH to the Jetson and DDS multicast discovery), so DHCP is fine. If campus enterprise networking blocks UDP multicast, DDS can be configured for unicast discovery by setting `ROS_DISCOVERY_SERVER` or configuring the FastDDS peer list to point at the Jetson directly.
 
 ---
 
 ## Startup Sequence
 
 1. Power on the UR3e, boot PolyscopeX, load the External Control program
-2. Boot the Linux SBC (ROS2 Humble and the UR driver are pre-installed)
-3. Open MATLAB on Windows, create the `ros2device` connection to the SBC
-4. Launch the UR driver on the SBC (via MATLAB's auto-generated launch script or manual SSH)
+2. Boot the Jetson Orin (ROS2 Humble and the UR driver are pre-installed)
+3. Open MATLAB on Windows, create the `ros2device` connection to the Jetson
+4. Launch the UR driver on the Jetson (via MATLAB's auto-generated launch script or manual SSH)
 5. Press Play on the PolyscopeX teach pendant to start the External Control program
 6. Create `urROS2Node` in MATLAB and begin sending commands
 
