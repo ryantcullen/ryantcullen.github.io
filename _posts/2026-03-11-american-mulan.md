@@ -2,7 +2,7 @@
 title: American Mulan
 ---
 
-In 1998, Disney told us the story of a young Chinese woman who disguised herself as a man to fight in her father's place. But [Deborah Sampson](https://en.wikipedia.org/wiki/Deborah_Sampson) did it too, and in real life, in 1782.
+In 1998, Disney told us the story of a young Chinese woman who disguised herself as a man to fight in her father's place. Mulan was a resounding success and remains in the cultural zeitgeist to this day. But [Deborah Sampson](https://en.wikipedia.org/wiki/Deborah_Sampson) did it too, and in real life, in 1782.
 
 Sampson bound her chest, enlisted in the Continental Army under the name Robert Shurtleff, and served in a light infantry company during the Revolutionary War. She fought in multiple engagements, was wounded at least twice, and on one occasion dug a musket ball out of her own thigh with a penknife rather than let a surgeon discover her secret. In short, she was a bit of a maniac who wasn't going to let the men have all the fun.
 
