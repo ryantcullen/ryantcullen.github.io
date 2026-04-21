@@ -8,7 +8,7 @@ Sampson was living in Massachusetts at the time of the outbreak of the American 
 
 ### Liberty Paradox
 
-Mulan fought out of duty to her father. Sampson's motivation was stranger: she fought for a cause of "liberty" that, by design, didn't extend to her. She couldn't vote, couldn't own property in most colonies, couldn't enlist. So she became someone who could.
+Mulan fought to protect her frail father and to save China from invaders. Sampson's motivation was stranger: she fought for a cause of "liberty" that, by design, didn't extend to her. She couldn't vote, couldn't own property in most colonies, couldn't enlist. So she became someone who could.
 
 When her secret was discovered due to a severe infection, she was honorably discharged. Not court-martialed or imprisoned. It was as if the system looked at her and what she had achieved, blinked, and quietly decided it would rather not think too hard about it. She spent years after the war petitioning for her pension; Paul Revere even wrote a letter on her behalf. After she died, her husband received survivor benefits normally reserved for widows of soldiers, the first time in American history. 
 
