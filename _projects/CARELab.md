@@ -8,9 +8,9 @@ link: https://www.careroboticslab.com
 linkName: CARELab
 ---
 
-As a graduate researcher at the **CARE Lab** (Control for Assistive and Rehabilitation Robotics Lab) at San Francisco State University, I lead two parallel efforts centered on a Universal Robots UR3e collaborative robot arm: developing a hands-on lab curriculum for undergraduate robotics education, and building out the robot's ROS2 automation stack with an NVIDIA Jetson Orin as a GPU-accelerated edge AI and perception layer.
+As a graduate researcher at the **CARE Lab** (Control for Assistive and Rehabilitation Robotics Lab) at San Francisco State University, I am developing an edge AI perception and control system centered on an **NVIDIA Jetson Orin** and a Universal Robots UR3e 6-DoF collaborative manipulator. The Jetson serves as the system's GPU-accelerated ROS2 perception node — deploying YOLOv8-based object detection for vision-guided manipulation — and as the ROS2 bridge between a Windows/MATLAB control host and the robot's Robotiq 2F-85 gripper.
 
-This work was presented as a work-in-progress paper at the **2026 ASEE Annual Conference & Exposition**, titled *"MATLAB/Simulink-Based Open-Source Robot Control Framework for Undergraduate Robotics Curriculum."*
+I also authored a MATLAB-based UR3e lab curriculum for undergraduate robotics, accepted for publication at the **2026 ASEE Annual Conference & Exposition**.
 
 ---
 
