@@ -1,6 +1,6 @@
 ---
 title: Reinforcement Learning Identification
-summary: Senior thesis: a protocol for distinguishing individual reinforcement learners from evolutionary agents in a population.
+summary: "Senior thesis: a protocol for distinguishing individual reinforcement learners from evolutionary agents in a population."
 tags: [Reinforcement Learning, AI, Data Science]
 weight: 4
 featured: true
