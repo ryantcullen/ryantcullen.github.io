@@ -2,7 +2,7 @@
 title: CARELab Robotics Research
 summary: Developing a ROS2 perception and control pipeline for a UR3e collaborative manipulator with an NVIDIA Jetson Orin for edge AI, alongside a MATLAB-based lab curriculum, at SFSU's CARE Lab.
 tags: [ROS2, MATLAB, UR3e, Robotics, Python, NVIDIA Jetson, YOLOv8, Computer Vision]
-weight: 2
+weight: 1
 featured: true
 link: https://www.careroboticslab.com
 linkName: CARELab
