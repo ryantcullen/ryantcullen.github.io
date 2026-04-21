@@ -2,17 +2,13 @@
 title: American Mulan
 ---
 
-In 1998, Disney told us the story of a young Chinese woman who disguised herself as a man to fight in her father's place. Audiences were captivated. What a concept. What imagination. What fiction.
+In 1998, Disney told us the story of a young Chinese woman who disguised herself as a man to fight in her father's place. Deborah Sampson did it too, in real life, in 1782.
 
-Except Deborah Sampson did it first. In 1782. Without the musical numbers.
-
-Sampson bound her chest, enlisted in the Continental Army under the name Robert Shurtleff, and served in a light infantry company during the Revolutionary War. She fought in multiple engagements, was wounded at least twice, and on one occasion dug a musket ball out of her own thigh with a penknife rather than let a surgeon discover her secret. Read that sentence again if you need to. I'll wait.
-
-She's an easy story to file under "inspirational" and move on. But there's a wrinkle worth sitting with.
+Sampson bound her chest, enlisted in the Continental Army under the name Robert Shurtleff, and served in a light infantry company during the Revolutionary War. She fought in multiple engagements, was wounded at least twice, and on one occasion dug a musket ball out of her own thigh with a penknife rather than let a surgeon discover her secret. In short, she was a bit of a maniac who wasn't going to let the men have all the fun.
 
 ### The Paradox
 
-Here is a woman who so believed in the cause of liberty that she broke the law to fight for it. The same cause that, by design, didn't extend to her. She couldn't vote. She couldn't own property in most colonies. She certainly couldn't enlist. So she became someone who could.
+Here is a woman who so believed in the cause of "liberty" that she broke the law to fight for it. The same cause that, by design, didn't extend to her. She couldn't vote. She couldn't own property in most colonies. She certainly couldn't enlist. So she became someone who could.
 
 When her secret was finally discovered (a fever and a hospital visit did what the musket ball couldn't), she was honorably discharged. Not court-martialed. Not imprisoned. Honorably discharged, as if the system looked at her, blinked, and quietly decided it would rather not think too hard about what just happened.
 
@@ -20,14 +16,8 @@ After the war, she married, had children, and spent years petitioning for the so
 
 The bureaucracy, apparently, could be progressive when sufficiently confused.
 
-### The Modern Echo
+### Echoes Today
 
-Sampson didn't fight because she wanted to be a man. She fought because she wanted to serve, and that was the only option the world gave her. That distinction matters. The gap between what a person can do and what a system will let them do is still very much open for business; we've just updated the paperwork.
-
-### The Alt-Text
-
-If Deborah Sampson were an XKCD comic, the alt-text would probably read: *"She removed her own musket ball. Your excuses are invalid."*
-
-And honestly? Fair.
+Sampson didn't fight because she wanted to be a man. She fought because she wanted to serve, and that was the only option the world gave her. The gap between what a person can do and what a system will let them do is a problem as old as systems themselves. Most of us just find workarounds that don't involve a penknife.
 
 -Ryan
