@@ -8,9 +8,7 @@ tags: [MATLAB, RTDE, UR3e, Robotics, Education]
 
 ## Overview
 
-Many undergraduate robotics programs struggle with a tradeoff: teach pendant programming is approachable but hides underlying control concepts, while ROS-based frameworks are powerful but overwhelm students with prerequisite Linux knowledge, command-line tooling, and configuration overhead before they ever touch a robot.
-
-To address this, I developed a **Windows-native, MATLAB-centered control framework** for Universal Robots e-series manipulators using the **Real Time Data Exchange (RTDE)** protocol. MATLAB is already a core tool in most engineering curricula, so students can start interacting with real industrial hardware immediately: no Linux, no ROS installation, no middleware. The framework communicates directly with the UR3e over TCP/IP via a standard Ethernet connection.
+I developed a **Windows-native, MATLAB-centered control framework** for Universal Robots e-series manipulators using the **Real Time Data Exchange (RTDE)** protocol. MATLAB is already a core tool in most engineering curricula, so students can start interacting with real industrial hardware immediately: no Linux, no ROS, no middleware. The framework communicates directly with the UR3e over TCP/IP via a standard Ethernet connection.
 
 This work was presented as a work-in-progress paper at the **2026 ASEE Annual Conference & Exposition**: *"MATLAB/Simulink-Based Open-Source Robot Control Framework for Undergraduate Robotics Curriculum."*
 
@@ -56,15 +54,5 @@ I authored four progressive lab modules that take students from zero to controll
 **Lab 3: Forward Kinematics:** Students derive the UR3e's forward kinematics from first principles using screw theory (Product of Exponentials), implement the model in MATLAB, and validate their results against both URSim and the physical robot hardware.
 
 **Lab 4: Pick-and-Place (Capstone):** Students execute a practical pick-and-place task on the physical UR3e, first using the Teach Pendant and then replicating it programmatically through MATLAB + RTDE to compare the two workflows.
-
----
-
-## Key Design Decisions
-
-**MATLAB over ROS:** ROS requires Linux, significant prerequisite coding skills, and heavy configuration overhead. MATLAB runs natively on Windows, is already familiar to engineering undergraduates, and reduces the time from zero to robot interaction from days to minutes.
-
-**RTDE over Teach Pendant programming:** The TP is essential for commissioning and safety, but it obscures the underlying mechanics. RTDE gives students direct joint-level access from a general-purpose programming environment, enabling them to implement their own controllers and explore lower-level behavior.
-
-**Simulation-first workflow:** URSim provides a 1:1 physics simulation that behaves identically to the real hardware when controlled via RTDE. Students can validate code safely before touching the physical robot.
 
 [&larr; Back to CARELab Robotics Research]({{ '/projects/carelab/' | relative_url }})
