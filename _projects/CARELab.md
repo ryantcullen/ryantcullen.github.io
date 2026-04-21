@@ -8,7 +8,7 @@ link: https://www.careroboticslab.com
 linkName: CARELab
 ---
 
-As a graduate researcher at the **CARE Lab** (Control for Assistive and Rehabilitation Robotics Lab) at San Francisco State University, I am developing an edge AI perception and control system centered on an **NVIDIA Jetson Orin** and a Universal Robots UR3e 6-DoF collaborative manipulator. The Jetson serves as the system's GPU-accelerated ROS2 perception node, deploying YOLOv8-based object detection for vision-guided manipulation, and as the ROS2 bridge between a Windows/MATLAB control host and the robot's Robotiq 2F-85 gripper.
+Graduate researcher at the **CARE Lab** at San Francisco State University, building a vision-guided manipulation system around a Universal Robots UR3e and an **NVIDIA Jetson Orin** for edge AI.
 
 I also authored a MATLAB-based UR3e lab curriculum for undergraduate robotics, accepted for publication at the **2026 ASEE Annual Conference & Exposition**.
 
@@ -16,7 +16,7 @@ I also authored a MATLAB-based UR3e lab curriculum for undergraduate robotics, a
 
 ### UR3e Automation & Control
 
-Developing a ROS2 perception and control pipeline for the UR3e with a Robotiq 2F-85 gripper, targeting vision-guided manipulation tasks. After a thorough investigation of platform constraints (the UR ROS2 driver is Linux-only and MATLAB's ROS2 workflow requires a Linux host), I designed a three-node architecture with an **NVIDIA Jetson Orin** serving as the ROS2 bridge between MATLAB on Windows and the robot, with integrated Robotiq gripper control via RS485 forwarding. The Jetson's Ampere GPU and dedicated inference hardware make it the edge AI layer of the system, currently being used to deploy **YOLOv8-based object detection** as a GPU-accelerated ROS2 perception node for real-time vision-guided manipulation.
+Building a ROS2 control and perception stack for the UR3e with a Robotiq 2F-85 gripper. The **NVIDIA Jetson Orin** serves as the edge AI hub, running **YOLOv8-based object detection** as a GPU-accelerated ROS2 node to enable vision-guided manipulation.
 
 [Read more &rarr;]({{ '/projects/carelab-automation/' | relative_url }})
 
@@ -24,6 +24,6 @@ Developing a ROS2 perception and control pipeline for the UR3e with a Robotiq 2F
 
 ### Robotics Lab Curriculum Development
 
-Designed and authored a four-module laboratory curriculum that uses MATLAB and the Real Time Data Exchange (RTDE) protocol to give undergraduate students direct, hands-on control of an industrial UR3e robot without requiring Linux or ROS. The curriculum progressively builds from installation and safety through teach pendant operation, forward kinematics derivation via screw theory, and a capstone pick-and-place exercise.
+A four-module lab curriculum using MATLAB and RTDE to give undergraduates hands-on control of the UR3e with no Linux or ROS required. Covers safety, teach pendant operation, forward kinematics via screw theory, and a capstone pick-and-place exercise.
 
 [Read more &rarr;]({{ '/projects/carelab-labs/' | relative_url }})
