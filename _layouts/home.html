@@ -9,7 +9,7 @@ layout: default
 
 <section>
   <h2>Featured Projects</h2>
-  <ul class="card-list card-list-2col">
+  <ul class="card-list">
     {%- assign featured = site.projects | where_exp: 'p','p.featured == true' | slice: 0, 3 -%}
     {%- for p in featured -%}
     <li class="card">

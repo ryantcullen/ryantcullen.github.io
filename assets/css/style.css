@@ -85,8 +85,8 @@ a:hover{text-decoration:underline}
 @media (min-width: 800px){.grid{grid-template-columns:1fr 1fr}}
 
 /* Cards / Lists */
-.card-list{list-style:none;padding:0;margin:0;display:grid;gap:14px}
-@media (min-width: 800px){.card-list-2col{grid-template-columns:1fr 1fr}}
+.card-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width: 600px){.card-list{grid-template-columns:1fr}}
 .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px}
 .card h3{margin-top:0}
 .meta{color:var(--muted);font-size:14px}
