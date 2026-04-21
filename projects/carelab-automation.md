@@ -8,7 +8,7 @@ tags: [ROS2, UR3e, Robotics, Python, Automation, NVIDIA Jetson, YOLOv8, Computer
 
 ## Overview
 
-Alongside the lab curriculum development, I am building out the UR3e's full automation and control stack for research applications at the CARE Lab, with an **NVIDIA Jetson Orin** serving as both the ROS2 bridge and edge AI layer. The central challenge: integrating ROS2 and GPU-accelerated vision into a workflow anchored on a Windows 11 machine running MATLAB, a combination that no single platform supports natively. After a thorough investigation of the constraints, I designed a three-node architecture that uses the Jetson Orin to bridge the gap — preserving the existing MATLAB workflow while enabling full ROS2 capabilities and on-device inference.
+Alongside the lab curriculum development, I am building out the UR3e's full automation and control stack for research applications at the CARE Lab, with an **NVIDIA Jetson Orin** serving as both the ROS2 bridge and edge AI layer. The central challenge: integrating ROS2 and GPU-accelerated vision into a workflow anchored on a Windows 11 machine running MATLAB, a combination that no single platform supports natively. After a thorough investigation of the constraints, I designed a three-node architecture that uses the Jetson Orin to bridge the gap, preserving the existing MATLAB workflow while enabling full ROS2 capabilities and on-device inference.
 
 ---
 
@@ -28,7 +28,7 @@ The lab's existing setup, MATLAB on Windows 11 controlling the UR3e and Robotiq 
 
 ## The Solution: NVIDIA Jetson Orin as ROS2 Bridge and Edge AI Layer
 
-The architecture introduces an **NVIDIA Jetson Orin** as a dedicated ROS2 node between MATLAB and the UR3e. This is the architecture MathWorks themselves describe in their documentation — a compact Linux device instead of a full second PC — but with the Jetson chosen specifically for its GPU-accelerated inference capabilities rather than just bridging.
+The architecture introduces an **NVIDIA Jetson Orin** as a dedicated ROS2 node between MATLAB and the UR3e. This is the architecture MathWorks themselves describe in their documentation, a compact Linux device instead of a full second PC, but with the Jetson chosen specifically for its GPU-accelerated inference capabilities rather than just bridging.
 
 ```
 [Windows 11 PC] ---Ethernet--- [NVIDIA Jetson Orin] ---Ethernet--- [UR3e Controller]
@@ -36,7 +36,7 @@ The architecture introduces an **NVIDIA Jetson Orin** as a dedicated ROS2 node b
    (DDS Client)                (ROS2 Bridge + Perception)          (ExternalControl URCapX)
 ```
 
-The Jetson runs Ubuntu 22.04 with ROS2 Humble and the UR ROS2 driver. It has direct, wired Ethernet access to the UR3e — no virtualization layer — giving it the reliable, low-latency network connection the driver requires. MATLAB on Windows communicates with the Jetson over the ROS2 DDS network, and the Jetson translates those commands into RTDE traffic for the robot.
+The Jetson runs Ubuntu 22.04 with ROS2 Humble and the UR ROS2 driver. It has direct, wired Ethernet access to the UR3e with no virtualization layer, giving it the reliable, low-latency network connection the driver requires. MATLAB on Windows communicates with the Jetson over the ROS2 DDS network, and the Jetson translates those commands into RTDE traffic for the robot.
 
 The Jetson Orin's Ampere GPU and dedicated deep learning accelerators make it the right choice for this role: the UR ROS2 driver itself is not computationally heavy, but the system's goal is vision-guided manipulation, which requires real-time GPU inference on the same device. Running both the ROS2 bridge and the perception pipeline on the Jetson keeps the architecture compact and avoids the latency of routing camera data to a separate inference host.
 
@@ -90,11 +90,11 @@ This eliminates the Robotiq URCapX entirely, replacing it with the tool-comm-for
 
 ## Edge AI Perception: YOLOv8 on the Jetson Orin
 
-The Jetson Orin's role in this architecture extends beyond ROS2 bridging. Its Ampere GPU and dedicated deep learning accelerators make it the system's edge AI layer for real-time computer vision — inference runs on the Jetson itself, keeping latency low and the Windows control host free of any vision processing overhead.
+The Jetson Orin's role in this architecture extends beyond ROS2 bridging. Its Ampere GPU and dedicated deep learning accelerators make it the system's edge AI layer for real-time computer vision; inference runs on the Jetson itself, keeping latency low and the Windows control host free of any vision processing overhead.
 
 The current work is deploying **YOLOv8** as a GPU-accelerated ROS2 perception node on the Jetson. A CSI-connected camera feeds into the Jetson's hardware ISP, which handles debayering, auto-exposure, and format conversion before data reaches the GPU. Detection results publish directly to the ROS2 DDS network as standard message types, making detected object poses available to MATLAB and downstream nodes without additional infrastructure.
 
-The detection output feeds the manipulation pipeline: object poses from the detector inform motion planning for the UR3e, completing the perception-to-action loop for vision-guided grasping tasks. NVIDIA's TensorRT inference optimizer — which fuses layers, quantizes weights to FP16 or INT8, and auto-tunes CUDA kernels for the specific Orin hardware — can push YOLOv8n from roughly 15–25 FPS in native PyTorch to 60+ FPS, providing the headroom needed for a responsive workbench assistant.
+The detection output feeds the manipulation pipeline: object poses from the detector inform motion planning for the UR3e, completing the perception-to-action loop for vision-guided grasping tasks. NVIDIA's TensorRT inference optimizer, which fuses layers, quantizes weights to FP16 or INT8, and auto-tunes CUDA kernels for the specific Orin hardware, pushing YOLOv8n from roughly 15–25 FPS in native PyTorch to 60+ FPS, providing the headroom needed for a responsive workbench assistant.
 
 ---
 
