@@ -8,7 +8,7 @@ link: https://www.careroboticslab.com
 linkName: CARELab
 ---
 
-Graduate researcher at the **CARE Lab** at San Francisco State University, building a vision-guided manipulation system around a Universal Robots UR3e and an **NVIDIA Jetson Orin** for edge AI.
+Graduate researcher at the **CARE Lab** at San Francisco State University, building a vision-guided manipulation system around a **UR3e 6-DoF arm** and an **NVIDIA Jetson Orin** for edge AI.
 
 I also authored a MATLAB-based UR3e lab curriculum for undergraduate robotics, accepted for publication at the **2026 ASEE Annual Conference & Exposition**.
 
@@ -16,7 +16,7 @@ I also authored a MATLAB-based UR3e lab curriculum for undergraduate robotics, a
 
 ### UR3e Automation & Control
 
-Building a ROS2 control and perception stack for the UR3e with a Robotiq 2F-85 gripper. The **NVIDIA Jetson Orin** serves as the edge AI hub, running **YOLOv8-based object detection** as a GPU-accelerated ROS2 node to enable vision-guided manipulation.
+Building a ROS2 control and perception stack for the **UR3e 6-DoF arm** with a Robotiq 2F-85 gripper. The **NVIDIA Jetson Orin** serves as the edge AI hub, running **YOLOv8-based object detection** as a GPU-accelerated ROS2 node to enable vision-guided manipulation.
 
 [Read more &rarr;]({{ '/projects/carelab-automation/' | relative_url }})
 
@@ -24,6 +24,6 @@ Building a ROS2 control and perception stack for the UR3e with a Robotiq 2F-85 g
 
 ### Robotics Lab Curriculum Development
 
-A four-module lab curriculum using MATLAB and RTDE to give undergraduates hands-on control of the UR3e with no Linux or ROS required. Covers safety, teach pendant operation, forward kinematics via screw theory, and a capstone pick-and-place exercise.
+A four-module lab curriculum using MATLAB and RTDE to give undergraduates hands-on control of the **UR3e 6-DoF arm** with no Linux or ROS required. Covers safety, teach pendant operation, forward kinematics via screw theory, and a capstone pick-and-place exercise.
 
 [Read more &rarr;]({{ '/projects/carelab-labs/' | relative_url }})
