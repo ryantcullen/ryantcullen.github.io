@@ -3,7 +3,7 @@ title: Reinforcement Learning Identification
 summary: My senior undergraduate thesis project in which I developed a protocol to distinguish between learning and non-learning agents among a given population.
 tags: [Reinforcement Learning, AI, Data Science, Research]
 weight: 4
-featured: false
+featured: true
 link: https://github.com/ryantcullen/identifying-learners
 linkName: Paper
 ---
