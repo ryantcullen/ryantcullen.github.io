@@ -2,7 +2,7 @@
 title: American Mulan
 ---
 
-In 1998, Disney told us the story of Mulan, a young Chinese woman who disguised herself as a man to fight in her father's place. But [Deborah Sampson](https://en.wikipedia.org/wiki/Deborah_Sampson) did it too, and in real life, in 1782.
+In 1998, Disney told us the story of Mulan, a young Chinese woman who disguised herself as a man to fight in her father's place against the Huns. Well, [Deborah Sampson](https://en.wikipedia.org/wiki/Deborah_Sampson) did something similar, in real life, in 1782.
 
 Sampson was living in Massachusetts at the time of the outbreak of the American Revolution. She promptly bound her chest and enlisted in the Continental Army under the name Robert Shurtleff. She fought in multiple engagements, was wounded at least twice, and on one occasion dug a musket ball out of her own thigh with a pocket knife rather than let a surgeon discover her secret. In short, she was a bit of a maniac who wasn't going to let the men have all the fun.
 
@@ -14,7 +14,7 @@ When her secret was discovered due to a severe infection, she was honorably disc
 
 The bureaucracy, apparently, could be progressive when sufficiently confused.
 
-### Echoes Today
+### Echoes
 
 Sampson didn't fight because she wanted to be a man. She fought because she wanted to fight, and that was the only option the world gave her. The gap between what a person can do and what a system will let them do is a problem as old as systems themselves. Most of us just find workarounds that don't involve stabbing yourself with a pocket knife.
 
